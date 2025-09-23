@@ -1,0 +1,5 @@
+# Ignore local VS Code settings
+.vscode/
+
+# Ignore sensitive keys folder
+key/

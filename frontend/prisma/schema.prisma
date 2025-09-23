@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  fullName     String
+  username     String        @unique
+  aadharNumber String        @unique
+  password     String
+  chatSessions ChatSession[]
+  irrigationRecords IrrigationCalendar[]
+}
+
+model ChatSession {
+  id        String        @id @default(cuid())
+  title     String
+  userId    Int
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  agentId   String?
+  agentName String?
+  language  String        @default("en")
+  messages  ChatMessage[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model ChatMessage {
+  id             String      @id @default(cuid())
+  sessionId      String
+  session        ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role           String // "user" or "assistant"
+  content        String      @db.Text
+  language       String?
+  translations   Json?       // Store translations as JSON
+  metadata       Json?       // Store AI metadata (confidence, sources, etc.)
+  attachments    Json?       // Store file attachments as JSON
+  error          Boolean?    @default(false)
+  createdAt      DateTime    @default(now())
+
+  @@index([sessionId])
+  @@index([createdAt])
+}
+
+  model IrrigationCalendar {
+    id             Int      @id @default(autoincrement())
+    userId         Int
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    irrigationDate DateTime
+    areaIrrigated  Float
+    waterUsed      Float
+    notes          String?
+    createdAt      DateTime @default(now())
+
+    @@index([userId])
+    @@index([irrigationDate])
+  }

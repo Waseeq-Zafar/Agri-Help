@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  agricultural-ai:
+    build: ./backend
+    container_name: agricultural-ai-app
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/.env
+    environment:
+      # Database connection
+      - DATABASE_URL=postgresql://admin:password@postgres:5432/agrodb
+
+      # Google credentials
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/key/gen-lang-client-0534560285-11d0c0639ad8.json
+
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/models:/app/models
+      - ./backend/cache:/app/cache
+      - ./backend/logs:/app/logs
+      - ./key:/app/key   # Mount key folder for Google credentials
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  postgres:
+    image: postgres:15
+    container_name: agricultural-ai-db
+    environment:
+      - POSTGRES_DB=agrodb
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
