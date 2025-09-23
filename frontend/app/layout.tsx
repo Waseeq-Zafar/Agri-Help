@@ -3,7 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata = {
-  title: "Pragati - Agri AI",
+  title: "AGRI-HELP - Agri AI",
   icons: {
     icon: "public/favicon.ico",
   },
