@@ -174,7 +174,7 @@ export default function Home() {
                 <Leaf className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">PRAGATI</h1>
+                <h1 className="text-xl font-bold text-gray-900">AGRI-HELP</h1>
                 <p className="text-xs text-green-600 hidden sm:block">
                   AI for Agriculture
                 </p>
@@ -416,7 +416,7 @@ export default function Home() {
               Ready to Transform Your Farm?
             </h2>
             <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Join thousands of farmers who are already using PRAGATI to
+              Join thousands of farmers who are already using AGRI-Help to
               increase their yields and profits
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -448,10 +448,10 @@ export default function Home() {
             <div className="w-6 h-6 bg-gradient-to-br from-green-600 to-emerald-600 rounded-lg flex items-center justify-center">
               <Leaf className="w-4 h-4 text-white" />
             </div>
-            <span className="font-semibold text-gray-700">PRAGATI</span>
+            <span className="font-semibold text-gray-700">AGRI-HELP</span>
           </div>
           <p>
-            © 2025 PRAGATI. Empowering Agriculture with AI Technology &
+            © 2025 AGRI-HELP. Empowering Agriculture with AI Technology &
             Insights.
           </p>
         </footer>

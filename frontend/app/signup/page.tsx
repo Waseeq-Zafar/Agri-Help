@@ -129,7 +129,7 @@ export default function SignUp() {
             <Leaf className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Join PRAGATI
+            Join AGRI-HELP
           </h1>
           <p className="text-gray-600">Create your account</p>
           <p className="text-sm text-green-600 font-medium">
@@ -325,7 +325,7 @@ export default function SignUp() {
 
         {/* Footer */}
         <div className="text-center mt-8 text-sm text-gray-500">
-          <p>© 2025 PRAGATI. Empowering Agriculture with AI.</p>
+          <p>© 2025 AGRI-HELP. Empowering Agriculture with AI.</p>
         </div>
       </div>
     </div>

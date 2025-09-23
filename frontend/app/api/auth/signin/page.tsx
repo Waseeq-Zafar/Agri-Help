@@ -74,7 +74,7 @@ export default function SignIn() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Welcome Back
           </h1>
-          <p className="text-gray-600">Sign in to PRAGATI</p>
+          <p className="text-gray-600">Sign in to AGRI-HELP</p>
           <p className="text-sm text-green-600 font-medium">
             Precision Retrieval & AI for Agriculture
           </p>
@@ -185,7 +185,7 @@ export default function SignIn() {
 
         {/* Footer */}
         <div className="text-center mt-8 text-sm text-gray-500">
-          <p>© 2025 PRAGATI. Empowering Agriculture with AI.</p>
+          <p>© 2025 AGRI-HELP. Empowering Agriculture with AI.</p>
         </div>
       </div>
     </div>

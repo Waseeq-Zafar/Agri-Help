@@ -42,7 +42,7 @@ export function ChatInput({
   onLanguageChangeAction,
   selectedLanguage,
   disabled = false,
-  placeholder = "Message PRAGATI...",
+  placeholder = "Message AGRI-HELP...",
   switchMode = false,
   onToolsEnabledChange,
 }: CleanChatInputProps) {

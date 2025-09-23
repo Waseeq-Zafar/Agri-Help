@@ -47,7 +47,7 @@ export function ProfileView() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 p-4 md:p-8">
-      {/* Header with Pragati Branding */}
+      {/* Header with AGRI-HELP Branding */}
       <div className="max-w-7xl mx-auto mb-8 px-4 md:px-8">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
@@ -55,7 +55,7 @@ export function ProfileView() {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">
-              PRAGATI
+              AGRI-HELP
             </h1>
           </div>
           <p className="text-green-700 text-lg font-medium">

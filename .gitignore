@@ -3,5 +3,3 @@
 
 # Ignore sensitive keys folder
 key/
-
-backend/google-creds.json
