@@ -13,7 +13,7 @@ services:
       - DATABASE_URL=postgresql://admin:password@postgres:5432/agrodb
 
       # Google credentials
-      - GOOGLE_APPLICATION_CREDENTIALS=/app/key/gen-lang-client-0534560285-11d0c0639ad8.json
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/key/pass.json
 
     volumes:
       - ./backend/uploads:/app/uploads
