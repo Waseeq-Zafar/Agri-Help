@@ -3,3 +3,5 @@
 
 # Ignore sensitive keys folder
 key/
+
+util/
