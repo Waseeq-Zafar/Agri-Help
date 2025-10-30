@@ -17,10 +17,17 @@ services:
 
     volumes:
       - ./backend/uploads:/app/uploads
-      - ./backend/models:/app/models
+      # - ./backend/models:/app/models
       - ./backend/cache:/app/cache
       - ./backend/logs:/app/logs
       - ./key:/app/key   # Mount key folder for Google credentials
+      # Model folders
+      - ./backend/models/Pest_prediction:/app/models/Pest_prediction
+      - ./backend/models/Weather_Forecasting:/app/models/Weather_Forecasting
+      - ./backend/models/Fertilizer-Recommendation:/app/models/Fertilizer-Recommendation
+      - ./backend/models/Crop-Recommendation:/app/models/Crop-Recommendation
+      - ./backend/models/Crop_Yield_Prediction:/app/models/Crop_Yield_Prediction
+      - ./backend/models/Commodities_price_Forcasting:/app/models/Commodities_price_Forcasting
     depends_on:
       - postgres
     restart: unless-stopped

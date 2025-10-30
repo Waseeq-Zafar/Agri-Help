@@ -133,7 +133,7 @@ export function AppSidebar({
             <SidebarGroupContent>
               <ScrollArea className="h-[450px]">
                 <SidebarMenu className="space-y-1">
-                  {/* Prediction Tools */}
+                  Prediction Tools
                   {groupedAgents.prediction?.map((agent) => (
                     <SidebarMenuItem key={agent.id}>
                       <SidebarMenuButton
@@ -154,7 +154,6 @@ export function AppSidebar({
                               <div className="text-xs text-gray-500 truncate peer">
                                 {agent.description}
                               </div>
-                              {/* Tooltip */}
                               <div className="absolute left-0 top-full z-50 hidden w-64 p-2 mt-1 text-xs text-gray-700 bg-white border border-gray-200 rounded shadow-lg peer-hover:block group-hover:block">
                                 {agent.description}
                               </div>

@@ -1370,7 +1370,7 @@ export default function AgriculturalAIChatbot() {
 
             {/* Right Section: Toggles + API Health */}
             <div className="ml-auto flex items-center gap-3">
-              {currentSession?.agent &&
+              {/* {currentSession?.agent &&
                 currentSession.agent.mode === "both" && (
                   <div className="flex items-center gap-2">
                     <span className="hidden sm:inline text-sm text-gray-600">
@@ -1387,7 +1387,7 @@ export default function AgriculturalAIChatbot() {
                     </span>
                     <Bot className="sm:hidden w-4 h-4 text-gray-600" />
                   </div>
-                )}
+                )} */}
 
               {/* Compact API Health Check */}
               <APIHealthCheck />
