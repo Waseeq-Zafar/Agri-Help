@@ -19,31 +19,45 @@ export function SimpleCamera({ onCapture, onClose }: SimpleCameraProps) {
   const [error, setError] = useState("");
 
   const startCamera = async (index = currentCameraIndex) => {
-    setError("");
-    try {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      const videoDevices = devices.filter((d) => d.kind === "videoinput");
-      setCameras(videoDevices);
+  setError("");
+  try {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    const videoDevices = devices.filter((d) => d.kind === "videoinput");
+    setCameras(videoDevices);
 
-      if (videoDevices.length === 0) {
-        setError("No camera found");
-        return;
-      }
-
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { deviceId: videoDevices[index]?.deviceId },
-      });
-
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        await videoRef.current.play();
-      }
-      setIsActive(true);
-    } catch (err: any) {
-      console.error("Camera error:", err);
-      setError("Unable to access camera");
+    if (videoDevices.length === 0) {
+      setError("No camera found");
+      return;
     }
-  };
+
+    // ✅ Determine constraint
+    let constraints: MediaStreamConstraints;
+
+    if (videoDevices.length > 1) {
+      // Use deviceId when available (desktop)
+      constraints = {
+        video: { deviceId: { exact: videoDevices[index]?.deviceId } },
+      };
+    } else {
+      // ✅ Use facingMode for mobile (rear camera)
+      constraints = {
+        video: { facingMode: index === 0 ? "environment" : "user" },
+      };
+    }
+
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+    if (videoRef.current) {
+      videoRef.current.srcObject = stream;
+      await videoRef.current.play();
+    }
+    setIsActive(true);
+  } catch (err: any) {
+    console.error("Camera error:", err);
+    setError("Unable to access camera");
+  }
+};
+
 
   const stopCamera = () => {
     if (videoRef.current?.srcObject) {
